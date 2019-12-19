@@ -1,1 +1,74 @@
+body {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+}
 
+Html {
+    Font-size: 62.5%;
+}
+
+/* END RESET */
+
+.container {
+    width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 5.5rem;
+}
+
+.header {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.nav {
+    display: flex;
+    justify-content: flex-end;
+    background-color: rgb(27, 23, 23);
+    opacity: 95%;
+    overflow: hidden;
+
+}
+
+.nav a {
+    text-decoration: none;
+    font-size: 2.5rem;
+    padding: 1% 2%;
+    color: white;
+}
+
+.nav a:hover {
+    color: rgba(255, 0, 0, 0.568);
+}
+
+.video {
+    min-width: 100%;
+    min-height: 100%;
+
+
+}
+
+.header {
+    display: flex;
+}
+
+.past-events h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.past-events .events {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    text-align: center;
+    padding: 6%;
+}
