@@ -3,6 +3,7 @@ body {
     padding: 0;
     margin: 0;
     max-width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 Html {
@@ -61,9 +62,13 @@ h6 {
 }
 
 .past-events h2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    color: white;
+    
+}
+
+.past-events {
+    background: black;
+    padding: 0; !important
 }
 
 .past-events .events {
@@ -71,4 +76,42 @@ h6 {
     grid-template-columns: repeat(4, 1fr);
     text-align: center;
     padding: 6%;
+}
+
+
+.section-titles {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    text-transform: uppercase;
+    font-family: Gotham, Helvetica, sans-serif;
+    font-size: ;
+    padding: 30px 30px;
+    margin-left: 30px;
+}
+
+.instagram-feed h2 {
+    text-decoration: none;
+}
+
+.footer {
+    display: flex; 
+    background: #000;
+    color: white;
+}
+
+.footer-1 {
+    flex: 1;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.footer-2 {
+    flex: 2;
+}
+
+.footer-3 {
+    flex: 1;
+    text-decoration: none;
+    list-style-type: none;
 }
