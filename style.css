@@ -42,12 +42,18 @@ h6 {
 .nav a {
     text-decoration: none;
     font-size: 2.5rem;
-    padding: 1% 2%;
+    padding: 1.5% 2%;
     color: white;
 }
 
 .nav a:hover {
     color: rgba(255, 0, 0, 0.568);
+}
+
+.buy-button {
+    border-radius: 50px;
+    background: lightgray;
+    margin: 1rem 4rem;
 }
 
 .video {
@@ -63,12 +69,11 @@ h6 {
 
 .past-events h2 {
     color: white;
-    
+
 }
 
 .past-events {
     background: black;
-    padding: 0; !important
 }
 
 .past-events .events {
@@ -94,24 +99,64 @@ h6 {
     text-decoration: none;
 }
 
+.instagram-feed h2 a:hover {
+    color: blue;
+}
+
+.ig-link {
+    text-decoration: none;
+    color: black;
+}
+
 .footer {
-    display: flex; 
+    display: grid;
+    grid-template-areas: "footer footer footer";
+    align-items: center;
     background: #000;
     color: white;
+    padding: 1.5% 0;
 }
+
 
 .footer-1 {
-    flex: 1;
-    text-decoration: none;
-    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+.footer-1 ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.footer-1 ul li a:hover {
+    text-decoration: underline;
+}
+
+
+
 .footer-2 {
-    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
 }
 
 .footer-3 {
-    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-3 ul li a {
+    color: white;
     text-decoration: none;
-    list-style-type: none;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.footer-3 ul li a:hover {
+    text-decoration: underline;
 }

@@ -16,16 +16,18 @@
 
         <div class="nav">
             <a href="#home">Home</a>
-            <a href="#ticket">Buy Tickets</a>
-            <a href="#pastevents">Past Events</a>
+            <a href="#past-events">Past Events</a>
             <a href="#contact">Contact</a>
+            <button class="buy-button">
+                <a href="#ticket">Buy Tickets</a>
+            </button>
         </div>
         <div class="video">
             <video autoplay loop muted src="/Content/IMG_2407.mov" style="width: 100%;"></video>
         </div>
     </section>
     <!-- PAST EVENTS -->
-    <section class="past-events">
+    <section id="past-events" class="past-events">
         <div class="section-titles">
             <h2>Past Events</h2>
         </div>
@@ -40,7 +42,7 @@
     <section class="instagram-feed">
         <div class="section-titles">
             <h2>
-                <a href="https://www.instagram.com/leverage.events/">@Leverage.Events</a>
+                <a class="ig-link" href="https://www.instagram.com/leverage.events/">@Leverage.Events</a>
             </h2>
         </div>
         <div class="instagram-embed">
@@ -52,7 +54,7 @@
     <footer>
         <div class="footer">
             <div class="footer-1">
-                <ul>
+                <ul style="list-style: none;">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#ticket">Buy Tickets</a></li>
                     <li><a href="#pastevents">Past Events</a></li>
@@ -64,7 +66,7 @@
                 {{ INSERT THE EMBED }}
             </div>
             <div class="footer-3">
-                <ul>
+                <ul style="list-style: none;">
                     <li>
                         <a href="https://www.instagram.com/leverage.events/">Instagram</a>
                     </li>
