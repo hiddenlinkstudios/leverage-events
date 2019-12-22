@@ -4,16 +4,19 @@ body {
     margin: 0;
     max-width: 100%;
     font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
 }
 
 Html {
     Font-size: 62.5%;
 }
 
+
 /* END RESET */
 
 .container {
     width: 100%;
+    padding: 0;
 }
 
 h1,
@@ -30,37 +33,65 @@ h6 {
     flex-flow: column nowrap;
 }
 
-.nav {
-    display: flex;
+.navbar.navbar-inverse.navbar-static-top {
     justify-content: flex-end;
-    background-color: rgb(27, 23, 23);
-    opacity: 95%;
-    overflow: hidden;
+    background-color: black;
+    padding: 2rem 0;
 
 }
 
-.nav a {
-    text-decoration: none;
-    font-size: 2.5rem;
-    padding: 1.5% 2%;
+.nav.navbar-nav>li {
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+    align-items: center;
+    padding: 1rem .5rem 0 0;
+}
+
+.nav.navbar-nav li a {
     color: white;
+    padding-right: 2rem;
 }
 
-.nav a:hover {
-    color: rgba(255, 0, 0, 0.568);
+.hamburger {
+    display: flex;
+    flex-flow: column nowrap;
+    font-size: 2.5rem;
+    line-height: .75rem;
+    padding-right: 2rem;
 }
 
-.buy-button {
-    border-radius: 50px;
-    background: lightgray;
-    margin: 1rem 4rem;
+.navbar-toggle.collapsed {
+    background-color: black;
+    border: none;
 }
+
+#non-mobile {
+    display: none;
+}
+
 
 .video {
     min-width: 100%;
     min-height: 100%;
+}
 
 
+
+.header-text {
+    display: flex;
+    position: absolute;
+    color: white;
+    font-size: 3rem;
+    padding-top: 30%;
+    padding-left: 2%;
+}
+
+#header-button {
+    display: flex;
+    position: absolute;
+    margin-top: 42%;
+    margin-left: 2%;
 }
 
 .header {
@@ -90,7 +121,6 @@ h6 {
     align-items: left;
     text-transform: uppercase;
     font-family: Gotham, Helvetica, sans-serif;
-    font-size: ;
     padding: 30px 30px;
     margin-left: 30px;
 }
@@ -159,4 +189,54 @@ h6 {
 
 .footer-3 ul li a:hover {
     text-decoration: underline;
+}
+
+
+/* MEDIA QUERIES */
+
+@media (max-width: 1200px) {
+    .container {
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 1201px) {
+    .container {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 799px) {
+
+    h2,
+    h3 {
+        font-size: 3rem;
+    }
+
+    #non-mobile {
+        display: none;
+    }
+
+    .section-titles {
+        margin: 0;
+        padding: 1rem;
+    }
+
+    a.ig-link {
+        font-size: 2rem;
+    }
+
+    .footer {
+        display: flex;
+        flex-flow: column nowrap;
+    }
+
+    .footer-2 {
+        text-align: center;
+        width: 60%;
+        padding: 1rem;
+        margin: auto;
+    }
+
+
 }
