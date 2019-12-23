@@ -70,7 +70,7 @@ h6 {
     display: flex;
     justify-content: flex-end;
     background-color: rgba(0, 0, 0, 0.897);
-    
+
 }
 
 #non-mobile a {
@@ -164,18 +164,21 @@ h6 {
 
 .footer-1 {
     display: flex;
+    flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    padding: 0;
 }
 
-.footer-1 ul li a {
+.footer-1 a {
     color: white;
     text-decoration: none;
     font-size: 1.5rem;
     text-align: center;
 }
 
-.footer-1 ul li a:hover {
+.footer-1 a:hover {
     text-decoration: underline;
 }
 
@@ -194,14 +197,15 @@ h6 {
     align-items: center;
 }
 
-.footer-3 ul li a {
+.footer-3 a {
     color: white;
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     text-align: center;
+    padding: 0 1rem;
 }
 
-.footer-3 ul li a:hover {
+.footer-3 a:hover {
     text-decoration: underline;
 }
 
@@ -250,6 +254,10 @@ h6 {
         width: 60%;
         padding: 1rem;
         margin: auto;
+    }
+
+    .footer-1 {
+        display: none;
     }
 }
 
