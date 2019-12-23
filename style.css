@@ -69,17 +69,20 @@ h6 {
 #non-mobile {
     display: flex;
     justify-content: flex-end;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.897);
+    
 }
 
 #non-mobile a {
     color: white;
-    padding: 2rem 1rem;
-    font-size: 1.75rem;
+    padding: 2rem 1.5rem;
+    font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 #non-mobile a:hover {
     color: lightcoral;
+    text-decoration: none;
 }
 
 
