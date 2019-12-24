@@ -135,15 +135,17 @@ nav{
 
 .past-events .events {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-	grid-gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(35rem, 1fr));
+	grid-gap: 1rem;
+	justify-content: center;
     text-align: center;
     padding: 6%;
+	width: inherit;
 }
 
 
 .events img {
-	width: 35rem;
+	width: 100%;
 	opacity: .7;
 }
 
@@ -333,7 +335,6 @@ nav{
 	
 	.nav-links{
 		height: 100%;
-		width: 0px;
 		position: fixed;
 		z-index: 1;
 		top: 0px;
