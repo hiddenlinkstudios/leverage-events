@@ -67,7 +67,22 @@ h6 {
 }
 
 #non-mobile {
-    display: none;
+    display: flex;
+    justify-content: flex-end;
+    background-color: rgba(0, 0, 0, 0.897);
+
+}
+
+#non-mobile a {
+    color: white;
+    padding: 2rem 1.5rem;
+    font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#non-mobile a:hover {
+    color: lightcoral;
+    text-decoration: none;
 }
 
 
@@ -78,20 +93,19 @@ h6 {
 
 
 
-.header-text {
+.header-text-container {
     display: flex;
     position: absolute;
     color: white;
     font-size: 3rem;
-    padding-top: 30%;
-    padding-left: 2%;
+    padding: 30% 0 0 2%;
+
 }
 
 #header-button {
     display: flex;
     position: absolute;
-    margin-top: 42%;
-    margin-left: 2%;
+    margin-top: 25%;
 }
 
 .header {
@@ -150,18 +164,21 @@ h6 {
 
 .footer-1 {
     display: flex;
+    flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    padding: 0;
 }
 
-.footer-1 ul li a {
+.footer-1 a {
     color: white;
     text-decoration: none;
     font-size: 1.5rem;
     text-align: center;
 }
 
-.footer-1 ul li a:hover {
+.footer-1 a:hover {
     text-decoration: underline;
 }
 
@@ -180,14 +197,15 @@ h6 {
     align-items: center;
 }
 
-.footer-3 ul li a {
+.footer-3 a {
     color: white;
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     text-align: center;
+    padding: 0 1rem;
 }
 
-.footer-3 ul li a:hover {
+.footer-3 a:hover {
     text-decoration: underline;
 }
 
@@ -238,5 +256,13 @@ h6 {
         margin: auto;
     }
 
+    .footer-1 {
+        display: none;
+    }
+}
 
+@media (min-width: 800px) {
+    #mobile {
+        display: none;
+    }
 }
