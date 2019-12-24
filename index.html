@@ -2,35 +2,125 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Leverage Events</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/2c97d4a124.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css" />
+
 </head>
 
-<body>
+<body class="container">
     <!-- HEADER -->
     <section class="header">
-        <div class="nav">
-            <a href="#home">Home</a>
-            <a href="#pastevents">Past Events</a>
-            <a href="#contact">Contact</a>
+        <div class="container">
 
-        </div>
+            <!-- Navigation -->
+		<nav>
+			<div class="logo"><img src="Content/Leverage.png" alt="Leverage Events"></div>
+			<ul class="nav-links">
+				<li><a href="#home">Home</a></li>
+				<li><a href="#past-events">Past Events</a></li>
+				<li><a href="#contact">Contact</a></li>
+				<li><button class="buy-button">
+                <a href="#ticket">Buy Tickets</a>
+            </button></li>
+			</ul>
+			<div class="burger">
+				<div class="line1"></div>
+				<div class="line2"></div>
+				<div class="line3"></div>
+			</div>
+		</nav>
+            <div class="header">
+                <div class="video">
+                    <video autoplay loop muted src="/Content/IMG_2407.mov" style="width: 100%;"></video>
+                </div>
+                <div class="header-text">EVENT 12/27</div><br>
+                <a id="header-button" class="btn btn-primary btn-lg" href="https://google.com" target="_blank"
+                    role="button">Buy
+                    Tickets</a>
+            </div>
+
     </section>
     <!-- PAST EVENTS -->
     <section class="past-events">
-
+        <h3>PAST EVENTS</h3>
+        <div class="events">
+			<div class="photo"><a href="https://www.facebook.com/Leverage.EventsLV/photos/?tab=album&amp;album_id=590174911548524" target="_blank"><img src="Content/dec22.jpg" alt="December 22 Simp City"></a>
+            <div class="centered">SIMP CITY DEC '18</div><div class="overlay"><div class="text">View Photos</div></div>
+			</div>
+			<div class="photo"><a href="https://www.facebook.com/Leverage.EventsLV/photos/?tab=album&amp;album_id=590174911548524" target="_blank"><img src="Content/dec22.jpg" href="https://www.facebook.com/pg/Leverage.EventsLV/photos/?tab=album&amp;album_id=590174911548524&amp;ref=page_internal" alt="February 8 Simp City"></a>
+            <div class="centered">SIMP CITY FEB '19</div><div class="overlay"><div class="text">View Photos</div></div>
+			</div>
+			<div class="photo"><a href="https://www.facebook.com/Leverage.EventsLV/photos/?tab=album&amp;album_id=590174911548524" target="_blank"><img src="Content/dec22.jpg" href="https://www.facebook.com/pg/Leverage.EventsLV/photos/?tab=album&amp;album_id=590174911548524&amp;ref=page_internal" alt="April 20 Simp City"></a>
+            <div class="centered">SIMP CITY APR '19</div><div class="overlay"><div class="text">View Photos</div></div>
+			</div>
+			<div class="photo"><a href="https://www.facebook.com/Leverage.EventsLV/photos/?tab=album&amp;album_id=590174911548524" target="_blank"><img src="Content/dec22.jpg" href="https://www.facebook.com/pg/Leverage.EventsLV/photos/?tab=album&amp;album_id=590174911548524&amp;ref=page_internal" alt="May 24 Simp City"></a>
+            <div class="centered">SIMP CITY MAY '19</div><div class="overlay"><div class="text">View Photos</div></div>
+			</div>
+			<div class="photo"><a href="https://www.facebook.com/Leverage.EventsLV/photos/?tab=album&amp;album_id=590174911548524" target="_blank"><img src="Content/dec22.jpg" href="https://www.facebook.com/pg/Leverage.EventsLV/photos/?tab=album&amp;album_id=590174911548524&amp;ref=page_internal" alt="June 21 Simp City"></a>
+            <div class="centered">SIMP CITY JUN '19</div><div class="overlay"><div class="text">View Photos</div></div>
+			</div>
+			<div class="photo"><a href="https://www.facebook.com/Leverage.EventsLV/photos/?tab=album&amp;album_id=590174911548524" target="_blank"><img src="Content/dec22.jpg" href="https://www.facebook.com/pg/Leverage.EventsLV/photos/?tab=album&amp;album_id=590174911548524&amp;ref=page_internal" alt="September 27 Simp City"></a>
+            <div class="centered">SIMP CITY SEP '19</div><div class="overlay"><div class="text">View Photos</div></div>
+			</div>
+        </div>
     </section>
     <!-- INSTAGRAM FEED -->
     <section class="instagram-feed">
-
+        <div class="section-titles">
+            <h2>
+                <a class="ig-link" href="https://www.instagram.com/leverage.events/">@Leverage.Events</a>
+            </h2>
+        </div>
+        <div class="instagram-embed">
+            <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+            <div class="elfsight-app-439976ed-093d-4046-a0d1-64376fd75fc4"></div>
+        </div>
     </section>
     <!-- FOOTER -->
     <footer>
-
+        <div class="footer">
+            <div class="footer-1">
+                <ul style="list-style: none;">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#ticket">Buy Tickets</a></li>
+                    <li><a href="#pastevents">Past Events</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-2">
+                <h3>Subscribe to our newsletter</h3>
+                {{ INSERT THE EMBED }}
+            </div>
+            <div class="footer-3">
+                <ul style="list-style: none;">
+                    <li>
+                        <a href="https://www.instagram.com/leverage.events/">Instagram</a>
+                    </li>
+                    <li>
+                        <a href="https://business.facebook.com/Leverage.EventsLV/">Facebook</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </footer>
+
+    <!-- BOOTSTRAP -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+	<script src="nav.js"></script>
 
 </body>
 
