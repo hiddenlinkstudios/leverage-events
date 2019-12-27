@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Leverage Events</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/2c97d4a124.js" crossorigin="anonymous"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/2c97d4a124.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="style.css" />
+  </head>
 
-</head>
-
-<body class="container">
+  <body class="container">
     <!-- HEADER -->
     <section class="header" id="home">
         <div class="container">
-
             <nav class="navbar navbar-expand-lg navbar-dark" id="non-mobile">
                 <a href="#home">Home</a>
                 <a href="#past-events">Past Events</a>
@@ -26,8 +30,6 @@
                     class="btn btn-light"
                     style="color: black; height: 2rem; display: flex; justify-content: center; align-items: center;">Buy
                     Tickets</a>
-
-
             </nav>
             <nav class="navbar navbar-inverse navbar-static-top" role="navigation" id="mobile">
 
@@ -67,6 +69,47 @@
                 </div>
             </div>
 
+          <div
+            class="collapse navbar-collapse"
+            id="bs-example-navbar-collapse-1"
+          >
+            <ul class="nav navbar-nav">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#past-events">Past Events</a></li>
+              <li><a href="#contact">Contact</a></li>
+              <li>
+                <a
+                  href="https://www.ticketweb.com/event/simp-city-brooklyn-bowl-las-vegas-tickets/10115875"
+                  >Buy Tickets</a
+                >
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <div class="header">
+          <div class="video">
+            <video
+              autoplay
+              loop
+              muted
+              src="/Content/IMG_2407.mov"
+              style="width: 100%;"
+            ></video>
+          </div>
+          <div class="header-text-container">
+            <div class="header-text">Simp City - 12/27</div>
+            <br />
+            <a
+              id="header-button"
+              class="btn btn-primary btn-lg"
+              href="https://www.ticketweb.com/event/simp-city-brooklyn-bowl-las-vegas-tickets/10115875"
+              target="_blank"
+              role="button"
+              >Buy Tickets</a
+            >
+          </div>
+        </div>
+      </div>
     </section>
     <!-- PAST EVENTS -->
     <section class="past-events" id="past-events">
@@ -160,6 +203,43 @@
             <script src="https://apps.elfsight.com/p/platform.js" defer></script>
             <div class="elfsight-app-439976ed-093d-4046-a0d1-64376fd75fc4"></div>
         </div>
+        <div class="photo">
+          <a
+            href="https://www.facebook.com/Leverage.EventsLV/photos/?tab=album&amp;album_id=590174911548524"
+            target="_blank"
+            ><img
+              src="Content/dec22.jpg"
+              href="https://www.facebook.com/pg/Leverage.EventsLV/photos/?tab=album&amp;album_id=590174911548524&amp;ref=page_internal"
+              alt="May 24 Simp City"
+          /></a>
+          <div class="centered">SIMP CITY MAY '19</div>
+          <div class="overlay"><div class="text">View Photos</div></div>
+        </div>
+        <div class="photo">
+          <a
+            href="https://www.facebook.com/Leverage.EventsLV/photos/?tab=album&amp;album_id=590174911548524"
+            target="_blank"
+            ><img
+              src="Content/dec22.jpg"
+              href="https://www.facebook.com/pg/Leverage.EventsLV/photos/?tab=album&amp;album_id=590174911548524&amp;ref=page_internal"
+              alt="June 21 Simp City"
+          /></a>
+          <div class="centered">SIMP CITY JUN '19</div>
+          <div class="overlay"><div class="text">View Photos</div></div>
+        </div>
+        <div class="photo">
+          <a
+            href="https://www.facebook.com/Leverage.EventsLV/photos/?tab=album&amp;album_id=590174911548524"
+            target="_blank"
+            ><img
+              src="Content/dec22.jpg"
+              href="https://www.facebook.com/pg/Leverage.EventsLV/photos/?tab=album&amp;album_id=590174911548524&amp;ref=page_internal"
+              alt="September 27 Simp City"
+          /></a>
+          <div class="centered">SIMP CITY SEP '19</div>
+          <div class="overlay"><div class="text">View Photos</div></div>
+        </div>
+      </div>
     </section>
     <!-- FOOTER -->
     <footer>
@@ -206,19 +286,84 @@
                         aria-hidden="true"></i></a>
             </div>
         </div>
+        <div class="footer-2">
+          <h3>Subscribe to our newsletter</h3>
+          <!-- Begin Mailchimp Signup Form -->
+          <!-- Begin MailChimp Signup Form -->
+          <div id="mailchimp">
+            <form
+              action="https://gmail.us4.list-manage.com/subscribe/post?u=f70087d431b3e345fddb98552&amp;id=aa4efdcadf"
+              method="post"
+              id="mc-embedded-subscribe-form"
+              name="mc-embedded-subscribe-form"
+              class="validate"
+              target="_blank"
+            >
+              <input
+                type="email"
+                size="30"
+                value="Enter your email"
+                name="EMAIL"
+                class="required email"
+                id="mce-EMAIL"
+                onfocus="if(this.value==this.defaultValue)this.value='';"
+                onblur="if(this.value=='')this.value=this.defaultValue;"
+              />
+
+              <div id="mce-responses" class="clear">
+                <div
+                  class="response"
+                  id="mce-error-response"
+                  style="display:none"
+                ></div>
+                <div
+                  class="response"
+                  id="mce-success-response"
+                  style="display:none"
+                ></div>
+              </div>
+
+              <div class="clear">
+                <input
+                  type="submit"
+                  value="Subscribe"
+                  name="subscribe"
+                  id="mc-embedded-subscribe"
+                  class="button"
+                />
+              </div>
+            </form>
+          </div>
+          <!--End mc_embed_signup-->
+        </div>
+        <div class="footer-3">
+          <a href="https://www.instagram.com/leverage.events/" target="_blank"
+            ><i class="fab fa-instagram" aria-hidden="true"></i
+          ></a>
+          <a
+            href="https://business.facebook.com/Leverage.EventsLV/"
+            target="_blank"
+            ><i class="fab fa-facebook" aria-hidden="true"></i
+          ></a>
+        </div>
+      </div>
     </footer>
 
     <!-- BOOTSTRAP -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-    </script>
-
-</body>
-
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
