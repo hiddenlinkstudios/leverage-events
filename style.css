@@ -98,14 +98,14 @@ h6 {
     position: absolute;
     color: white;
     font-size: 5rem;
-    padding: 30% 0 0 2%; 
+    padding: 30% 0 0 2%;
     text-transform: uppercase;
     font-weight: bold;
 }
 
 #header-button {
     display: flex;
-    position: absolute;
+    position: inherit;
     margin-top: 20%;
 }
 
@@ -114,12 +114,12 @@ h6 {
     background: black;
 }
 
-.past-events{
-	background-color:black;
+.past-events {
+    background-color: black;
 }
 
 .past-events h3 {
-	color: white;
+    color: white;
     display: flex;
     justify-content: left;
     align-items: center;
@@ -129,60 +129,64 @@ h6 {
 .past-events .events {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(35rem, 1fr));
-	grid-gap: 1rem;
-	justify-content: center;
+    grid-gap: 1rem;
+    justify-content: center;
     text-align: center;
     padding: 0 4% 4%;
-	width: inherit;
+    width: inherit;
 }
 
 .events img {
-	width: 100%;
-	opacity: .7;
+    width: 100%;
+    opacity: .7;
 }
 
 .photo {
-  	position: relative;
-  	text-align: center;
-  	color: white;
-	font-size: 35px;
-	font-style: oblique;
+    position: relative;
+    text-align: center;
+    color: white;
+    font-size: 35px;
+    font-style: oblique;
 }
 
 .centered {
-  	position: absolute;
-  	top: 50%;
-  	left: 50%;
-  	transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.photo .centered {
+    color: white;
 }
 
 .overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  opacity: 0;
-  transition: .5s ease;
-  background-color: lightgray;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: lightgray;
 }
 
 .photo:hover .overlay {
-  opacity: 1;
+    opacity: 1;
 }
 
 .text {
-  color: black;
-  font-size: 20px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  text-align: center;
+    color: black;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
 }
 
 
@@ -194,15 +198,15 @@ h6 {
     text-transform: uppercase;
     font-family: Gotham, Helvetica, sans-serif;
     padding: 30px 30px;
-    margin-left: 30px; !important
-    margin-top: 5%;
+    margin-left: 30px;
+     !important margin-top: 5%;
     font-weight: bold;
 }
 
 .instagram-feed h2 {
     text-decoration: none;
     font-weight: 600;
-    
+
 }
 
 .instagram-feed h2 a:hover {
@@ -210,8 +214,9 @@ h6 {
 }
 
 .instagram-embed {
-    padding: 0 4% 4%; !important
-} 
+    padding: 0 4% 4%;
+     !important
+}
 
 .ig-link {
     text-decoration: none;
@@ -280,13 +285,19 @@ h6 {
     margin-bottom: 10px;
     padding: 8px 10px;
     width: 100%;
-		border-radius: 5px;
-		-moz-border-radius: 5px;
-		-webkit-border-radius: 5px;
-    }
-    
-#mailchimp input.email { background: #fff }
-#mailchimp input.name { background: #fff}
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+#mailchimp input.email {
+    background: #fff
+}
+
+#mailchimp input.name {
+    background: #fff
+}
+
 #mailchimp input[type="submit"] {
     background: blue;
     color: #fff;
@@ -296,7 +307,10 @@ h6 {
     padding: 8px 0;
 
 }
-#mailchimp input[type="submit"]:hover { color: #FFFFF}
+
+#mailchimp input[type="submit"]:hover {
+    color: #FFFFF
+}
 
 .footer-3 {
     display: flex;
@@ -347,7 +361,7 @@ h6 {
         position: absolute;
         color: white;
         font-size: 3rem;
-        padding: 30% 0 0 2%; 
+        padding: 30% 0 0 2%;
         text-transform: uppercase;
         font-weight: bold;
     }
@@ -385,8 +399,9 @@ h6 {
     }
 
     .instagram-embed {
-        padding: 6% 2% 2%;!important
-    } 
+        padding: 6% 2% 2%;
+         !important
+    }
 
     .footer {
         display: flex;
