@@ -114,6 +114,10 @@ h6 {
     background: black;
 }
 
+.upcoming-events {
+    background-color: tan;
+}
+
 .past-events {
     background-color: black;
 }
