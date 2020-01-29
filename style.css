@@ -272,6 +272,10 @@ h6 {
     font-size: 3rem;
 }
 
+#subscribe {
+	text-align: center;
+}
+
 #mailchimp {
     padding: 20px 15px;
     display: inline-block;
