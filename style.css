@@ -118,6 +118,32 @@ h6 {
     background-color: tan;
 }
 
+.carousel-inner {
+	padding-bottom: 25px;
+}
+
+.carousel-inner > .item > a > img{
+	opacity: 0.4;
+ 	width:640px;
+  	height:360px;
+}
+
+.carousel-caption {
+	top: 40%;
+	transform: translateY(-50%);
+	
+}
+
+.carousel-caption h1 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 80px;
+}
+
+.carousel-caption p {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 30px;
+}
+
 .past-events {
     background-color: black;
 }
@@ -270,6 +296,10 @@ h6 {
 
 .footer-2 h3 {
     font-size: 3rem;
+}
+
+#subscribe {
+	text-align: center;
 }
 
 #mailchimp {
