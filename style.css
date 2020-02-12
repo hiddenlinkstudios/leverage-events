@@ -179,6 +179,11 @@ h6 {
     font-style: oblique;
 }
 
+.photo img {
+    height: 360px;
+
+}
+
 .centered {
     position: absolute;
     top: 50%;
