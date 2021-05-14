@@ -6,13 +6,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Leverage Events</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/2c97d4a124.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css" />
+
+    <!-- Facebook Pixel Code -->
+    <script>
+        ! function(f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function() {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '3084331871853340');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=3084331871853340&ev=PageView&noscript=1"
+        /></noscript>
+    <!-- End Facebook Pixel Code -->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L58MRWY6FY"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-L58MRWY6FY');
+    </script>
 </head>
 
 <body class="container">
@@ -23,15 +63,12 @@
                 <a href="#home">Home</a>
                 <a href="#past-events">Past Events</a>
                 <!-- <a href="#contact">Contact</a> -->
-                <a href="Https://simpcityjune12.eventbrite.com/?aff=LVRGPRESENTS" target="_blank"
-                    class="btn btn-primary"
-                    style="color: black; height: 2rem; display: flex; justify-content: center; align-items: center;">Buy Tickets</a>
+                <a href="Https://simpcityjune12.eventbrite.com/?aff=LVRGPRESENTS" target="_blank" class="btn btn-primary" style="color: black; height: 2rem; display: flex; justify-content: center; align-items: center;">Buy Tickets</a>
             </nav>
             <nav class="navbar navbar-inverse navbar-static-top" role="navigation" id="mobile">
 
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#bs-example-navbar-collapse-1">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                         <div class="hamburger">
                             <span class="sr-only">Toggle navigation</span>
                             <i class="fas fa-bars" style="color: white;"></i>
@@ -67,27 +104,25 @@
     <!-- UPCOMING EVENTS -->
     <section class="past-events" id="past-events">
         <div class="upcoming-events">
-        <div class="section-titles">
-            <h3>Upcoming Events</h3>
-        </div>
-        <div class="events">
-            <div class="photo"><a
-                    href="Https://simpcityjune12.eventbrite.com/?aff=LVRGPRESENTS"
-                    ><img src="Content/simpbox copy.jpg" target="_blank" alt="Simp City Las Vegas">
-                    <div class="centered">
-                        SIMP CITY 
-                    <br/>
-                        JUNE 12, 2021</div>
-                    <div class="overlay">
-                        <div class="text">Buy Tickets!</div>
-                    </div>
-                </a>
-
+            <div class="section-titles">
+                <h3>Upcoming Events</h3>
             </div>
-        
+            <div class="events">
+                <div class="photo">
+                    <a href="Https://simpcityjune12.eventbrite.com/?aff=LVRGPRESENTS"><img src="Content/simpbox copy.jpg" target="_blank" alt="Simp City Las Vegas">
+                        <div class="centered">
+                            SIMP CITY
+                            <br/> JUNE 12, 2021</div>
+                        <div class="overlay">
+                            <div class="text">Buy Tickets!</div>
+                        </div>
+                    </a>
 
-				
-             
+                </div>
+
+
+
+
 
             </div>
             <!-- <div class="photo"><a href="https://www.facebook.com/Leverage.EventsLV/photos/?tab=album&amp;album_id=590174911548524" target="_blank"><img src="Content/dec22.jpg" href="https://www.facebook.com/pg/Leverage.EventsLV/photos/?tab=album&amp;album_id=590174911548524&amp;ref=page_internal" alt="April 20 Simp City"></a>
@@ -141,120 +176,112 @@
                 </a>
 
             </div> -->
-    </div>
+        </div>
     </section>
     <!-- PAST EVENTS -->
     <section class="past-events" id="past-events">
-		<div class="section-titles">
+        <div class="section-titles">
             <h3>Past Event Photos</h3>
         </div>
-      <div id="myCarousel" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  		<ol class="carousel-indicators">
-			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-			<li data-target="#myCarousel" data-slide-to="1"></li>
-    		<li data-target="#myCarousel" data-slide-to="2"></li>
-			<li data-target="#myCarousel" data-slide-to="3"></li>
-			<li data-target="#myCarousel" data-slide-to="4"></li>
-			<li data-target="#myCarousel" data-slide-to="5"></li>
-			<li data-target="#myCarousel" data-slide-to="6"></li>
-            <li data-target="#myCarousel" data-slide-to="7"></li>
- 		 </ol>
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel" data-slide-to="3"></li>
+                <li data-target="#myCarousel" data-slide-to="4"></li>
+                <li data-target="#myCarousel" data-slide-to="5"></li>
+                <li data-target="#myCarousel" data-slide-to="6"></li>
+                <li data-target="#myCarousel" data-slide-to="7"></li>
+            </ol>
 
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner">
-    <div class="item active">
-      <a href="https://www.facebook.com/pg/Leverage.Events/photos/?tab=album&album_id=590174911548524&ref=page_internal"
-         target="_blank"><img class="img-responsive center-block d-block" src="/Content/dec18.JPG" alt="SIMP CITY DEC 2018">
-		<div class="carousel-caption d-block">
-    		<h1>SIMP CITY</h1>
-    		<p>DEC 2018</p>
-    	</div>
-		</a>
-    </div>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <a href="https://www.facebook.com/pg/Leverage.Events/photos/?tab=album&album_id=590174911548524&ref=page_internal" target="_blank"><img class="img-responsive center-block d-block" src="/Content/dec18.JPG" alt="SIMP CITY DEC 2018">
+                        <div class="carousel-caption d-block">
+                            <h1>SIMP CITY</h1>
+                            <p>DEC 2018</p>
+                        </div>
+                    </a>
+                </div>
 
-    <div class="item">
-      	<a href="https://www.facebook.com/pg/Leverage.Events/photos/?tab=album&album_id=595598031006212&ref=page_internal"
-         target="_blank"><img class="img-responsive center-block d-block" src="/Content/feb19.png" alt="SIMP CITY FEB 2019">
-		<div class="carousel-caption d-block">
-    		<h1>SIMP CITY</h1>
-    		<p>FEB 2019</p>
-    	</div>
-		</a>
-    </div>
+                <div class="item">
+                    <a href="https://www.facebook.com/pg/Leverage.Events/photos/?tab=album&album_id=595598031006212&ref=page_internal" target="_blank"><img class="img-responsive center-block d-block" src="/Content/feb19.png" alt="SIMP CITY FEB 2019">
+                        <div class="carousel-caption d-block">
+                            <h1>SIMP CITY</h1>
+                            <p>FEB 2019</p>
+                        </div>
+                    </a>
+                </div>
 
-    <div class="item">
-      <a href="https://www.facebook.com/pg/Leverage.Events/photos/?tab=album&album_id=597739397458742&ref=page_internal"
-         target="_blank"><img class="img-responsive center-block d-block" src="/Content/may19.jpeg" alt="SIMP CITY MAY 2019">
-		<div class="carousel-caption d-block">
-    		<h1>SIMP CITY</h1>
-    		<p>MAY 2019</p>
-    	</div>
-		</a>
-    </div>
-	  
-	<div class="item">
-      <a href="https://www.facebook.com/pg/Leverage.Events/photos/?tab=album&album_id=597744490791566&ref=page_internal"
-         target="_blank"><img class="img-responsive center-block d-block" src="/Content/dec22.jpg" alt="SIMP CITY JUNE 2019">
-		<div class="carousel-caption d-block">
-    		<h1>SIMP CITY</h1>
-    		<p>JUN 2019</p>
-    	</div>
-		</a>
-    </div>
-	  
-	<div class="item">
-      <a href="https://www.facebook.com/pg/Leverage.Events/photos/?tab=album&album_id=597747694124579&ref=page_internal"
-         target="_blank"><img class="img-responsive center-block d-block" src="/Content/july19.JPG" alt="SIMP CITY JUL 2019">
-		<div class="carousel-caption d-block">
-    		<h1>SIMP CITY</h1>
-    		<p>JUL 2019</p>
-    	</div>
-		</a>
-    </div>
-	  
-	<div class="item">
-      <a href="https://www.facebook.com/pg/Leverage.Events/photos/?tab=album&album_id=597755544123794&ref=page_internal"
-         target="_blank"><img class="img-responsive center-block d-block" src="/Content/sep19.PNG" alt="SIMP CITY SEP 2019">
-		<div class="carousel-caption d-block">
-    		<h1>SIMP CITY</h1>
-    		<p>SEP 2019</p>
-    	</div>
-		</a>
-    </div>
-	  
-	<div class="item">
-      <a href="https://www.facebook.com/pg/Leverage.Events/photos/?tab=album&album_id=604478786784803&ref=page_internal"
-         target="_blank"><img class="img-responsive center-block d-block" src="/Content/dec19.JPG" alt="SIMP CITY DEC 2019">
-		<div class="carousel-caption d-block">
-    		<h1>SIMP CITY</h1>
-    		<p>1 YEAR ANNIVERSARY</p>
-    	</div>
-		</a>
-    </div>
+                <div class="item">
+                    <a href="https://www.facebook.com/pg/Leverage.Events/photos/?tab=album&album_id=597739397458742&ref=page_internal" target="_blank"><img class="img-responsive center-block d-block" src="/Content/may19.jpeg" alt="SIMP CITY MAY 2019">
+                        <div class="carousel-caption d-block">
+                            <h1>SIMP CITY</h1>
+                            <p>MAY 2019</p>
+                        </div>
+                    </a>
+                </div>
 
-    <div class="item">
-      <a href="https://www.facebook.com/pg/Leverage.Events/photos/?tab=album&album_id=604478786784803&ref=page_internal"
-         target="_blank"><img class="img-responsive center-block d-block" src="/Content/mar14.jpg" alt="SIMP CITY MAR 2020">
-        <div class="carousel-caption d-block">
-            <h1>SIMP CITY</h1>
-            <p>MAR 2020</p>
+                <div class="item">
+                    <a href="https://www.facebook.com/pg/Leverage.Events/photos/?tab=album&album_id=597744490791566&ref=page_internal" target="_blank"><img class="img-responsive center-block d-block" src="/Content/dec22.jpg" alt="SIMP CITY JUNE 2019">
+                        <div class="carousel-caption d-block">
+                            <h1>SIMP CITY</h1>
+                            <p>JUN 2019</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="item">
+                    <a href="https://www.facebook.com/pg/Leverage.Events/photos/?tab=album&album_id=597747694124579&ref=page_internal" target="_blank"><img class="img-responsive center-block d-block" src="/Content/july19.JPG" alt="SIMP CITY JUL 2019">
+                        <div class="carousel-caption d-block">
+                            <h1>SIMP CITY</h1>
+                            <p>JUL 2019</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="item">
+                    <a href="https://www.facebook.com/pg/Leverage.Events/photos/?tab=album&album_id=597755544123794&ref=page_internal" target="_blank"><img class="img-responsive center-block d-block" src="/Content/sep19.PNG" alt="SIMP CITY SEP 2019">
+                        <div class="carousel-caption d-block">
+                            <h1>SIMP CITY</h1>
+                            <p>SEP 2019</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="item">
+                    <a href="https://www.facebook.com/pg/Leverage.Events/photos/?tab=album&album_id=604478786784803&ref=page_internal" target="_blank"><img class="img-responsive center-block d-block" src="/Content/dec19.JPG" alt="SIMP CITY DEC 2019">
+                        <div class="carousel-caption d-block">
+                            <h1>SIMP CITY</h1>
+                            <p>1 YEAR ANNIVERSARY</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="item">
+                    <a href="https://www.facebook.com/pg/Leverage.Events/photos/?tab=album&album_id=604478786784803&ref=page_internal" target="_blank"><img class="img-responsive center-block d-block" src="/Content/mar14.jpg" alt="SIMP CITY MAR 2020">
+                        <div class="carousel-caption d-block">
+                            <h1>SIMP CITY</h1>
+                            <p>MAR 2020</p>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
-        </a>
-    </div>
-	  
-  </div>
-
-  <!-- Left and right controls -->
-  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#myCarousel" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
     </section>
     <!-- INSTAGRAM FEED -->
     <section class="instagram-feed">
@@ -273,8 +300,7 @@
         <div class="footer">
             <div class="footer-1">
                 <a href="#home">Home</a>
-                <a href=""
-                    target="Https://simpcityjune12.eventbrite.com/?aff=LVRGPRESENTS">Buy
+                <a href="" target="Https://simpcityjune12.eventbrite.com/?aff=LVRGPRESENTS">Buy
                     Tickets</a>
                 <a href="#past-events">Past Events</a>
                 <!-- <a href="#contact">Contact</a> -->
@@ -284,14 +310,9 @@
                 <!-- Begin Mailchimp Signup Form -->
                 <!-- Begin MailChimp Signup Form -->
                 <div id="mailchimp">
-                    <form
-                        action="https://gmail.us4.list-manage.com/subscribe/post?u=f70087d431b3e345fddb98552&amp;id=aa4efdcadf"
-                        method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate"
-                        target="_blank">
+                    <form action="https://gmail.us4.list-manage.com/subscribe/post?u=f70087d431b3e345fddb98552&amp;id=aa4efdcadf" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
 
-                        <input type="email" size="30" value="Enter your email" name="EMAIL" class="required email"
-                            id="mce-EMAIL" onfocus="if(this.value==this.defaultValue)this.value='';"
-                            onblur="if(this.value=='')this.value=this.defaultValue;">
+                        <input type="email" size="30" value="Enter your email" name="EMAIL" class="required email" id="mce-EMAIL" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;">
 
                         <div id="mce-responses" class="clear">
                             <div class="response" id="mce-error-response" style="display:none"></div>
@@ -299,8 +320,7 @@
                         </div>
 
                         <div class="clear">
-                            <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe"
-                                class="button">
+                            <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
                         </div>
                     </form>
                 </div>
@@ -311,25 +331,22 @@
                         aria-hidden="true"></i></a>
                 <a href="https://business.facebook.com/Leverage.EventsLV/" target="_blank"><i class="fab fa-facebook"
                         aria-hidden="true"></i></a>
-				<a href="https://twitter.com/LeverageEvents" target="_blank"><i class="fab fa-twitter"
+                <a href="https://twitter.com/LeverageEvents" target="_blank"><i class="fab fa-twitter"
                         aria-hidden="true"></i></a>
-				<a href="#" target="_blank"><i class="fab fa-youtube"
+                <a href="#" target="_blank"><i class="fab fa-youtube"
                         aria-hidden="true"></i></a>
-				
+
             </div>
         </div>
         </div>
     </footer>
 
     <!-- BOOTSTRAP -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
     </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
 </body>
 
