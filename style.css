@@ -43,9 +43,9 @@ h6 {
 .nav.navbar-nav>li {
     display: flex;
     justify-content: center;
-    font-size: 2rem;
+    font-size: 1.5rem;
     align-items: center;
-    padding: 1rem .5rem 0 0;
+    padding: .5rem .5rem 0 0;
 }
 
 .nav.navbar-nav li a {
