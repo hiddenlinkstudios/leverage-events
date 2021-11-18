@@ -191,7 +191,12 @@ h6 {
   transform: translate(-50%, -50%);
 }
 
-.photo .centered {
+.upcoming-photo .centered {
+  color: white;
+  font-size: 0.8em;
+}
+
+.wait-photo .centered {
   color: black;
   font-size: 0.8em;
 }
