@@ -3,29 +3,41 @@
 
 <head>
     <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-PT3GTKJ');</script>
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-PT3GTKJ');
+    </script>
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Leverage Events</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/2c97d4a124.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css" />
 
+    <!-- Facebook Meta Tag-->
+    <meta name="facebook-domain-verification" content="2zzjr0y3kgx07upcct1fxjwocfm0di" />
     <!-- Facebook Pixel Code -->
     <script>
-        ! function (f, b, e, v, n, t, s) {
+        ! function(f, b, e, v, n, t, s) {
             if (f.fbq) return;
-            n = f.fbq = function () {
+            n = f.fbq = function() {
                 n.callMethod ?
                     n.callMethod.apply(n, arguments) : n.queue.push(arguments)
             };
@@ -62,16 +74,26 @@
     </script>
     <!-- Meta Pixel Code -->
     <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1536889653489732');
-    fbq('track', 'PageView');
+        ! function(f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function() {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1536889653489732');
+        fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=1536889653489732&ev=PageView&noscript=1"
@@ -81,9 +103,9 @@
 
 <body class="container">
     <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PT3GTKJ"
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PT3GTKJ"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+    <!-- End Google Tag Manager (noscript) -->
     <!-- HEADER -->
     <section class="header" id="home">
         <div class="container">
@@ -92,15 +114,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <a href="https://forms.gle/SxFw7m1cCHreGvYc6" target="_blank">Join Events Team</a>
                 <a href="https://leveragepresents.myshopify.com/" target="_blank">Merch</a>
                 <a href="#past-events">Past Events</a>
-                <a href="https://www.etix.com/ticket/p/8818760/nostalgiathe-official-pop-party-las-vegas-24-oxford" target="_blank" class=" btn btn-primary"
-                    style="color: black; height: 2rem; display: flex; justify-content: center; align-items: center;">Buy
+                <a href="https://www.etix.com/ticket/p/8818760/nostalgiathe-official-pop-party-las-vegas-24-oxford" target="_blank" class=" btn btn-primary" style="color: black; height: 2rem; display: flex; justify-content: center; align-items: center;">Buy
                     Tickets</a>
             </nav>
             <nav class="navbar navbar-inverse navbar-static-top" role="navigation" id="mobile">
 
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#bs-example-navbar-collapse-1">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                         <div class="hamburger">
                             <span class="sr-only">Toggle navigation</span>
                             <i class="fas fa-bars" style="color: white;"></i>
@@ -122,8 +142,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </nav>
             <div class="header">
                 <div class="video">
-                    <video playsinline autoplay loop controls muted src="/Content/IMG_0794.TRIM.MOV"
-                        style="width: 100%;"></video>
+                    <video playsinline autoplay loop controls muted src="/Content/IMG_0794.TRIM.MOV" style="width: 100%;"></video>
                 </div>
                 <!-- <div class="header-text-container">
                     <div class="header-text">
@@ -146,11 +165,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
             <div class="photo upcoming-photo">
-                <a href="https://www.etix.com/ticket/p/8818760/nostalgiathe-official-pop-party-las-vegas-24-oxford" target="_blank"><img
-                        src="/Content/Nostalgia3 Flyer - IG Post.jpg" alt="Nostalgia">
+                <a href="https://www.etix.com/ticket/p/8818760/nostalgiathe-official-pop-party-las-vegas-24-oxford" target="_blank"><img src="/Content/Nostalgia3 Flyer - IG Post.jpg" alt="Nostalgia">
                     <div class="centered">
-                        Nostalgia<br>
-                        March 11, 2023
+                        Nostalgia<br> March 11, 2023
                     </div>
                     <div class="overlay">
                         <div class="text">Buy Tickets</div>
@@ -159,11 +176,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
 
             <div class="photo upcoming-photo">
-                <a href="https://link.dice.fm/KzHUvCdwNxb" target="_blank"><img
-                        src="/Content/FAF_LaMonaRosa_1080x1080.jpeg" alt="Friends & Family">
+                <a href="https://link.dice.fm/KzHUvCdwNxb" target="_blank"><img src="/Content/FAF_LaMonaRosa_1080x1080.jpeg" alt="Friends & Family">
                     <div class="centered">
-                        Friends & Family<br>
-                        March 16, 2023
+                        Friends & Family<br> March 16, 2023
                     </div>
                     <div class="overlay">
                         <div class="text">Buy Tickets</div>
@@ -195,8 +210,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <div class="events">
             <div class="photo wait-photo">
-                <a href="http://Simpcitywaitlist.eventbrite.com/?aff=LVRG" target="_blank"><img
-                        src="Content/simpwhite.jpg" alt="Simp City">
+                <a href="http://Simpcitywaitlist.eventbrite.com/?aff=LVRG" target="_blank"><img src="Content/simpwhite.jpg" alt="Simp City">
                     <div class="centered">
                         <strong>SIMP CITY</strong> <br />
                         <strong>(R&B)</strong>
@@ -207,8 +221,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </a>
             </div>
             <div class="photo wait-photo">
-                <a href="https://afterdarkwaitlist.eventbrite.com" target="_blank"><img src="Content/afterdark.jpg"
-                        alt="After Dark">
+                <a href="https://afterdarkwaitlist.eventbrite.com" target="_blank"><img src="Content/afterdark.jpg" alt="After Dark">
                     <div class="centered">
                         <strong>AFTER DARK</strong> <br />
                         <strong>(Hip-Hop/Rap)</strong>
@@ -219,8 +232,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </a>
             </div>
             <div class="photo wait-photo">
-                <a href="https://sincerelynostalgia.eventbrite.com" target="_blank"><img src="Content/nostalgia.PNG"
-                        alt="Nostalgia">
+                <a href="https://sincerelynostalgia.eventbrite.com" target="_blank"><img src="Content/nostalgia.PNG" alt="Nostalgia">
                     <div class="centered">
                         <strong>Nostalgia</strong> <br />
                         <strong>(Pop/Throwback)</strong>
@@ -231,8 +243,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </a>
             </div>
             <div class="photo wait-photo">
-                <a href="https://leveragetakeoverwaitlist.eventbrite.com" target="_blank"><img
-                        src="Content/leverage.jpg" alt="Leverage Takeover">
+                <a href="https://leveragetakeoverwaitlist.eventbrite.com" target="_blank"><img src="Content/leverage.jpg" alt="Leverage Takeover">
                     <div class="centered">
                         <strong>Las Vegas Guide</strong><br />
                     </div>
@@ -271,9 +282,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
                 <div class="item active">
-                    <a href="https://www.facebook.com/pg/Leverage.Events/photos/?tab=album&album_id=590174911548524&ref=page_internal"
-                        target="_blank"><img class="img-responsive center-block d-block" src="/Content/dec18.JPG"
-                            alt="SIMP CITY DEC 2018">
+                    <a href="https://www.facebook.com/pg/Leverage.Events/photos/?tab=album&album_id=590174911548524&ref=page_internal" target="_blank"><img class="img-responsive center-block d-block" src="/Content/dec18.JPG" alt="SIMP CITY DEC 2018">
                         <div class="carousel-caption d-block">
                             <h1>SIMP CITY</h1>
                             <p>DEC 2018</p>
@@ -282,9 +291,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
 
                 <div class="item">
-                    <a href="https://www.facebook.com/pg/Leverage.Events/photos/?tab=album&album_id=595598031006212&ref=page_internal"
-                        target="_blank"><img class="img-responsive center-block d-block" src="/Content/feb19.png"
-                            alt="SIMP CITY FEB 2019">
+                    <a href="https://www.facebook.com/pg/Leverage.Events/photos/?tab=album&album_id=595598031006212&ref=page_internal" target="_blank"><img class="img-responsive center-block d-block" src="/Content/feb19.png" alt="SIMP CITY FEB 2019">
                         <div class="carousel-caption d-block">
                             <h1>SIMP CITY</h1>
                             <p>FEB 2019</p>
@@ -293,9 +300,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
 
                 <div class="item">
-                    <a href="https://www.facebook.com/pg/Leverage.Events/photos/?tab=album&album_id=597739397458742&ref=page_internal"
-                        target="_blank"><img class="img-responsive center-block d-block" src="/Content/may19.jpeg"
-                            alt="SIMP CITY MAY 2019">
+                    <a href="https://www.facebook.com/pg/Leverage.Events/photos/?tab=album&album_id=597739397458742&ref=page_internal" target="_blank"><img class="img-responsive center-block d-block" src="/Content/may19.jpeg" alt="SIMP CITY MAY 2019">
                         <div class="carousel-caption d-block">
                             <h1>SIMP CITY</h1>
                             <p>MAY 2019</p>
@@ -304,9 +309,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
 
                 <div class="item">
-                    <a href="https://www.facebook.com/pg/Leverage.Events/photos/?tab=album&album_id=597744490791566&ref=page_internal"
-                        target="_blank"><img class="img-responsive center-block d-block" src="/Content/dec22.jpg"
-                            alt="SIMP CITY JUNE 2019">
+                    <a href="https://www.facebook.com/pg/Leverage.Events/photos/?tab=album&album_id=597744490791566&ref=page_internal" target="_blank"><img class="img-responsive center-block d-block" src="/Content/dec22.jpg" alt="SIMP CITY JUNE 2019">
                         <div class="carousel-caption d-block">
                             <h1>SIMP CITY</h1>
                             <p>JUN 2019</p>
@@ -315,9 +318,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
 
                 <div class="item">
-                    <a href="https://www.facebook.com/pg/Leverage.Events/photos/?tab=album&album_id=597747694124579&ref=page_internal"
-                        target="_blank"><img class="img-responsive center-block d-block" src="/Content/july19.JPG"
-                            alt="SIMP CITY JUL 2019">
+                    <a href="https://www.facebook.com/pg/Leverage.Events/photos/?tab=album&album_id=597747694124579&ref=page_internal" target="_blank"><img class="img-responsive center-block d-block" src="/Content/july19.JPG" alt="SIMP CITY JUL 2019">
                         <div class="carousel-caption d-block">
                             <h1>SIMP CITY</h1>
                             <p>JUL 2019</p>
@@ -326,9 +327,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
 
                 <div class="item">
-                    <a href="https://www.facebook.com/pg/Leverage.Events/photos/?tab=album&album_id=597755544123794&ref=page_internal"
-                        target="_blank"><img class="img-responsive center-block d-block" src="/Content/sep19.PNG"
-                            alt="SIMP CITY SEP 2019">
+                    <a href="https://www.facebook.com/pg/Leverage.Events/photos/?tab=album&album_id=597755544123794&ref=page_internal" target="_blank"><img class="img-responsive center-block d-block" src="/Content/sep19.PNG" alt="SIMP CITY SEP 2019">
                         <div class="carousel-caption d-block">
                             <h1>SIMP CITY</h1>
                             <p>SEP 2019</p>
@@ -337,9 +336,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
 
                 <div class="item">
-                    <a href="https://www.facebook.com/pg/Leverage.Events/photos/?tab=album&album_id=604478786784803&ref=page_internal"
-                        target="_blank"><img class="img-responsive center-block d-block" src="/Content/dec19.JPG"
-                            alt="SIMP CITY DEC 2019">
+                    <a href="https://www.facebook.com/pg/Leverage.Events/photos/?tab=album&album_id=604478786784803&ref=page_internal" target="_blank"><img class="img-responsive center-block d-block" src="/Content/dec19.JPG" alt="SIMP CITY DEC 2019">
                         <div class="carousel-caption d-block">
                             <h1>SIMP CITY</h1>
                             <p>1 YEAR ANNIVERSARY</p>
@@ -348,9 +345,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
 
                 <div class="item">
-                    <a href="https://www.facebook.com/pg/Leverage.Events/photos/?tab=album&album_id=604478786784803&ref=page_internal"
-                        target="_blank"><img class="img-responsive center-block d-block" src="/Content/mar14.jpg"
-                            alt="SIMP CITY MAR 2020">
+                    <a href="https://www.facebook.com/pg/Leverage.Events/photos/?tab=album&album_id=604478786784803&ref=page_internal" target="_blank"><img class="img-responsive center-block d-block" src="/Content/mar14.jpg" alt="SIMP CITY MAR 2020">
                         <div class="carousel-caption d-block">
                             <h1>SIMP CITY</h1>
                             <p>MAR 2020</p>
@@ -359,9 +354,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
 
                 <div class="item">
-                    <a href="https://www.facebook.com/media/set/?set=a.1037091700190174&type=3" target="_blank"><img
-                            class="img-responsive center-block d-block" src="/Content/simpblxst.jpg"
-                            alt="SIMP CITY JUN 2021">
+                    <a href="https://www.facebook.com/media/set/?set=a.1037091700190174&type=3" target="_blank"><img class="img-responsive center-block d-block" src="/Content/simpblxst.jpg" alt="SIMP CITY JUN 2021">
                         <div class="carousel-caption d-block">
                             <h1>SIMP CITY</h1>
                             <p>JUN 2021</p>
@@ -370,9 +363,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
 
                 <div class="item">
-                    <a href="https://www.facebook.com/media/set/?set=a.1037134080185936&type=3" target="_blank"><img
-                            class="img-responsive center-block d-block" src="/Content/simpbryson.jpeg"
-                            alt="SIMP CITY SEP 2021">
+                    <a href="https://www.facebook.com/media/set/?set=a.1037134080185936&type=3" target="_blank"><img class="img-responsive center-block d-block" src="/Content/simpbryson.jpeg" alt="SIMP CITY SEP 2021">
                         <div class="carousel-caption d-block">
                             <h1>SIMP CITY</h1>
                             <p>SEP 2021</p>
@@ -381,9 +372,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
 
                 <div class="item">
-                    <a href="https://www.facebook.com/media/set/?set=a.1037149293517748&type=3" target="_blank"><img
-                            class="img-responsive center-block d-block" src="/Content/locals0913.jpeg"
-                            alt="LEVERAGE TAKEOVER SEP 13 2021">
+                    <a href="https://www.facebook.com/media/set/?set=a.1037149293517748&type=3" target="_blank"><img class="img-responsive center-block d-block" src="/Content/locals0913.jpeg" alt="LEVERAGE TAKEOVER SEP 13 2021">
                         <div class="carousel-caption d-block">
                             <h2>LEVERAGE TAKEOVER</h2>
                             <p>SEP 13 2021</p>
@@ -392,9 +381,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
 
                 <div class="item">
-                    <a href="https://www.facebook.com/media/set/?set=a.1037155666850444&type=3" target="_blank"><img
-                            class="img-responsive center-block d-block" src="/Content/locals1004.jpeg"
-                            alt="LEVERAGE TAKEOVER OCT 4 2021">
+                    <a href="https://www.facebook.com/media/set/?set=a.1037155666850444&type=3" target="_blank"><img class="img-responsive center-block d-block" src="/Content/locals1004.jpeg" alt="LEVERAGE TAKEOVER OCT 4 2021">
                         <div class="carousel-caption d-block">
                             <h2>LEVERAGE TAKEOVER</h2>
                             <p>OCT 4 2021</p>
@@ -403,9 +390,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
 
                 <div class="item">
-                    <a href="https://www.facebook.com/media/set/?set=a.1038399260059418&type=3" target="_blank"><img
-                            class="img-responsive center-block d-block" src="/Content/joekay.jpeg"
-                            alt="JOE KAY OCT 2021">
+                    <a href="https://www.facebook.com/media/set/?set=a.1038399260059418&type=3" target="_blank"><img class="img-responsive center-block d-block" src="/Content/joekay.jpeg" alt="JOE KAY OCT 2021">
                         <div class="carousel-caption d-block">
                             <h1>JOE KAY</h1>
                             <p>OCT 2021</p>
@@ -414,9 +399,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
 
                 <div class="item">
-                    <a href="https://www.facebook.com/media/set/?set=a.1037159720183372&type=3" target="_blank"><img
-                            class="img-responsive center-block d-block" src="/Content/simphalloween21.jpeg"
-                            alt="SIMP CITY OCT 2021">
+                    <a href="https://www.facebook.com/media/set/?set=a.1037159720183372&type=3" target="_blank"><img class="img-responsive center-block d-block" src="/Content/simphalloween21.jpeg" alt="SIMP CITY OCT 2021">
                         <div class="carousel-caption d-block">
                             <h1>SIMP CITY</h1>
                             <p>OCT 2021</p>
@@ -425,9 +408,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
 
                 <div class="item">
-                    <a href="https://www.facebook.com/media/set/?set=a.1049862502246427&type=3" target="_blank"><img
-                            class="img-responsive center-block d-block" src="/Content/milesmedina.jpg"
-                            alt="MILES MEDINA NOV 2021">
+                    <a href="https://www.facebook.com/media/set/?set=a.1049862502246427&type=3" target="_blank"><img class="img-responsive center-block d-block" src="/Content/milesmedina.jpg" alt="MILES MEDINA NOV 2021">
                         <div class="carousel-caption d-block">
                             <h2>LEVERAGE TAKEOVER</h2>
                             <h2>MILES MEDINA</h2>
@@ -437,9 +418,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
 
                 <div class="item">
-                    <a href="https://www.facebook.com/pg/Leverage.Events/photos/?ref=page_internal&tab=album&album_id=1065799620652715"
-                        target="_blank"><img class="img-responsive center-block d-block" src="/Content/3yearsimp.jpg"
-                            alt="SIMP CITY DEC 2021">
+                    <a href="https://www.facebook.com/pg/Leverage.Events/photos/?ref=page_internal&tab=album&album_id=1065799620652715" target="_blank"><img class="img-responsive center-block d-block" src="/Content/3yearsimp.jpg" alt="SIMP CITY DEC 2021">
                         <div class="carousel-caption d-block">
                             <h2>PRE 3 YEAR SIMP CITY</h2>
                             <p>DEC 2021</p>
@@ -448,9 +427,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
 
                 <div class="item">
-                    <a href="https://www.facebook.com/media/set/?set=a.1153136368585706&type=3" target="_blank"><img
-                            class="img-responsive center-block d-block" src="/Content/ANDRE2.jpg"
-                            alt="Soulection Feb 2022">
+                    <a href="https://www.facebook.com/media/set/?set=a.1153136368585706&type=3" target="_blank"><img class="img-responsive center-block d-block" src="/Content/ANDRE2.jpg" alt="Soulection Feb 2022">
                         <div class="carousel-caption d-block">
                             <h2>Soulection: Andre Power x Olea</h2>
                             <p>FEB 2022</p>
@@ -459,9 +436,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
 
                 <div class="item">
-                    <a href="https://www.facebook.com/media/set/?set=a.1153136728585670&type=3" target="_blank"><img
-                            class="img-responsive center-block d-block" src="/Content/friendsandfamily.jpg"
-                            alt="Friends & Family vol 001">
+                    <a href="https://www.facebook.com/media/set/?set=a.1153136728585670&type=3" target="_blank"><img class="img-responsive center-block d-block" src="/Content/friendsandfamily.jpg" alt="Friends & Family vol 001">
                         <div class="carousel-caption d-block">
                             <h2>Friends & Family vol 001</h2>
                             <p>MAY 2022</p>
@@ -470,9 +445,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
 
                 <div class="item">
-                    <a href="https://www.facebook.com/media/set/?set=a.1168829510349725&type=3" target="_blank"><img
-                            class="img-responsive center-block d-block" src="/Content/simplight.jpg"
-                            alt="SIMP CITY May 2022">
+                    <a href="https://www.facebook.com/media/set/?set=a.1168829510349725&type=3" target="_blank"><img class="img-responsive center-block d-block" src="/Content/simplight.jpg" alt="SIMP CITY May 2022">
                         <div class="carousel-caption d-block">
                             <h2>SIMP CITY</h2>
                             <p>MAY 2022</p>
@@ -481,9 +454,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
 
                 <div class="item">
-                    <a href="https://www.facebook.com/media/set/?set=a.1169127436986599&type=3" target="_blank"><img
-                            class="img-responsive center-block d-block" src="/Content/ff2.jpeg"
-                            alt="Friends & Family vol 002 JUNE 2022">
+                    <a href="https://www.facebook.com/media/set/?set=a.1169127436986599&type=3" target="_blank"><img class="img-responsive center-block d-block" src="/Content/ff2.jpeg" alt="Friends & Family vol 002 JUNE 2022">
                         <div class="carousel-caption d-block">
                             <h2>Friends & Family vol 002</h2>
                             <p>JUNE 2022</p>
@@ -492,9 +463,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
 
                 <div class="item">
-                    <a href="https://www.facebook.com/media/set/?set=a.1194766077756068&type=3" target="_blank"><img
-                            class="img-responsive center-block d-block" src="/Content/afterdark618.jpg"
-                            alt="After Dark JUNE 2022">
+                    <a href="https://www.facebook.com/media/set/?set=a.1194766077756068&type=3" target="_blank"><img class="img-responsive center-block d-block" src="/Content/afterdark618.jpg" alt="After Dark JUNE 2022">
                         <div class="carousel-caption d-block">
                             <h2>After Dark</h2>
                             <p>JUNE 2022</p>
@@ -503,9 +472,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
 
                 <div class="item">
-                    <a href="https://www.facebook.com/media/set/?set=a.1194741787758497&type=3" target="_blank"><img
-                            class="img-responsive center-block d-block" src="/Content/ff3.jpeg"
-                            alt="Friends & Family vol 003 JULY 2022">
+                    <a href="https://www.facebook.com/media/set/?set=a.1194741787758497&type=3" target="_blank"><img class="img-responsive center-block d-block" src="/Content/ff3.jpeg" alt="Friends & Family vol 003 JULY 2022">
                         <div class="carousel-caption d-block">
                             <h2>Friends & Family vol 003</h2>
                             <p>JULY 2022</p>
@@ -514,9 +481,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
 
                 <div class="item">
-                    <a href="https://www.facebook.com/media/set/?set=a.1194787001087309&type=3" target="_blank"><img
-                            class="img-responsive center-block d-block" src="/Content/simpint.jpg"
-                            alt="Simp City July 2022">
+                    <a href="https://www.facebook.com/media/set/?set=a.1194787001087309&type=3" target="_blank"><img class="img-responsive center-block d-block" src="/Content/simpint.jpg" alt="Simp City July 2022">
                         <div class="carousel-caption d-block">
                             <h2>Simp City</h2>
                             <p>JULY 2022</p>
@@ -568,14 +533,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <!-- Begin Mailchimp Signup Form -->
                 <!-- Begin MailChimp Signup Form -->
                 <div id="mailchimp">
-                    <form
-                        action="https://gmail.us4.list-manage.com/subscribe/post?u=f70087d431b3e345fddb98552&amp;id=aa4efdcadf"
-                        method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate"
-                        target="_blank">
+                    <form action="https://gmail.us4.list-manage.com/subscribe/post?u=f70087d431b3e345fddb98552&amp;id=aa4efdcadf" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
 
-                        <input type="email" size="30" value="Enter your email" name="EMAIL" class="required email"
-                            id="mce-EMAIL" onfocus="if(this.value==this.defaultValue)this.value='';"
-                            onblur="if(this.value=='')this.value=this.defaultValue;">
+                        <input type="email" size="30" value="Enter your email" name="EMAIL" class="required email" id="mce-EMAIL" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;">
 
                         <div id="mce-responses" class="clear">
                             <div class="response" id="mce-error-response" style="display:none"></div>
@@ -583,8 +543,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         </div>
 
                         <div class="clear">
-                            <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe"
-                                class="button">
+                            <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
                         </div>
                     </form>
                 </div>
@@ -607,15 +566,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- <script async type="text/javascript"
         src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=XGPY4j"></script> -->
     <!-- BOOTSTRAP -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-        </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-        </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-        </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>
