@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — Leverage Events</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0a0a0a;
+      color: #f0f0f0;
+      min-height: 100vh;
+    }
+
+    /* LOGIN */
+    #login-screen {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .login-box {
+      background: #141414;
+      border: 1px solid #2a2a2a;
+      border-radius: 12px;
+      padding: 48px 40px;
+      width: 100%;
+      max-width: 380px;
+      text-align: center;
+    }
+
+    .login-box h1 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: 0.04em;
+    }
+
+    .login-box p {
+      color: #666;
+      font-size: 13px;
+      margin-bottom: 32px;
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 12px 16px;
+      background: #1e1e1e;
+      border: 1px solid #333;
+      border-radius: 8px;
+      color: #f0f0f0;
+      font-size: 15px;
+      margin-bottom: 14px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .login-box input:focus { border-color: #d4a94f; }
+
+    .login-error {
+      color: #e05c5c;
+      font-size: 13px;
+      margin-bottom: 12px;
+      display: none;
+    }
+
+    /* ADMIN PANEL */
+    #admin-panel { display: none; }
+
+    .topbar {
+      background: #141414;
+      border-bottom: 1px solid #2a2a2a;
+      padding: 14px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .topbar h1 {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: #d4a94f;
+    }
+
+    .topbar-actions { display: flex; gap: 10px; }
+
+    .main { max-width: 900px; margin: 0 auto; padding: 32px 24px; }
+
+    /* BUTTONS */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 18px;
+      border-radius: 7px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: opacity 0.15s, transform 0.1s;
+    }
+    .btn:active { transform: scale(0.97); }
+    .btn-gold { background: #d4a94f; color: #000; }
+    .btn-gold:hover { opacity: 0.88; }
+    .btn-ghost { background: transparent; color: #888; border: 1px solid #333; }
+    .btn-ghost:hover { border-color: #555; color: #ccc; }
+    .btn-danger { background: #3a1515; color: #e05c5c; border: 1px solid #5a2020; }
+    .btn-danger:hover { background: #4a1818; }
+    .btn-sm { padding: 6px 12px; font-size: 12px; }
+    .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    /* SECTION */
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .section-header h2 { font-size: 17px; font-weight: 700; }
+
+    /* EVENT CARDS */
+    .events-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 40px; }
+
+    .event-card {
+      background: #141414;
+      border: 1px solid #2a2a2a;
+      border-radius: 10px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .event-thumb {
+      width: 64px;
+      height: 64px;
+      object-fit: cover;
+      border-radius: 6px;
+      background: #222;
+      flex-shrink: 0;
+    }
+
+    .event-info { flex: 1; min-width: 0; }
+    .event-info h3 { font-size: 15px; font-weight: 700; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .event-meta { font-size: 12px; color: #777; }
+    .event-meta span { margin-right: 10px; }
+    .event-actions { display: flex; gap: 8px; flex-shrink: 0; }
+
+    .empty-state {
+      text-align: center;
+      padding: 48px;
+      color: #444;
+      font-size: 14px;
+    }
+
+    /* MODAL */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 20px;
+    }
+    .modal-overlay.open { display: flex; }
+
+    .modal {
+      background: #141414;
+      border: 1px solid #2a2a2a;
+      border-radius: 12px;
+      padding: 32px;
+      width: 100%;
+      max-width: 560px;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .modal h2 { font-size: 17px; font-weight: 700; margin-bottom: 20px; }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group.full { grid-column: 1 / -1; }
+
+    label {
+      font-size: 12px;
+      font-weight: 600;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    input[type="text"],
+    input[type="url"],
+    input[type="email"],
+    input[type="file"],
+    input[type="password"] {
+      padding: 10px 14px;
+      background: #1e1e1e;
+      border: 1px solid #333;
+      border-radius: 7px;
+      color: #f0f0f0;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+
+    input:focus { border-color: #d4a94f; }
+    input[type="file"] { padding: 8px 12px; cursor: pointer; }
+
+    .current-image {
+      width: 80px;
+      height: 55px;
+      object-fit: cover;
+      border-radius: 5px;
+      margin-top: 6px;
+      display: none;
+    }
+
+    .upload-progress {
+      height: 4px;
+      background: #222;
+      border-radius: 2px;
+      margin-top: 8px;
+      display: none;
+    }
+    .upload-progress-bar {
+      height: 100%;
+      background: #d4a94f;
+      border-radius: 2px;
+      width: 0%;
+      transition: width 0.3s;
+    }
+
+    .form-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+      justify-content: flex-end;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid #222;
+      margin: 32px 0;
+    }
+
+    /* TOAST */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #1e3a1e;
+      border: 1px solid #2d5c2d;
+      color: #6bcf6b;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      z-index: 2000;
+      transform: translateY(20px);
+      opacity: 0;
+      transition: all 0.25s;
+    }
+    .toast.error { background: #3a1515; border-color: #5a2020; color: #e05c5c; }
+    .toast.show { transform: translateY(0); opacity: 1; }
+  </style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="login-screen">
+  <div class="login-box">
+    <h1>LEVERAGE EVENTS</h1>
+    <p>Admin access only</p>
+    <input type="email" id="login-email" placeholder="Email" />
+    <input type="password" id="login-password" placeholder="Password" />
+    <div class="login-error" id="login-error">Incorrect email or password.</div>
+    <button class="btn btn-gold" style="width:100%;justify-content:center;" id="login-btn" onclick="login()">Sign In</button>
+  </div>
+</div>
+
+<!-- ADMIN PANEL -->
+<div id="admin-panel">
+  <div class="topbar">
+    <h1>LEVERAGE ADMIN</h1>
+    <div class="topbar-actions">
+      <a class="btn btn-ghost" href="/" target="_blank">View Site</a>
+      <button class="btn btn-ghost" onclick="logout()">Logout</button>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="section-header">
+      <h2>Upcoming Events</h2>
+      <button class="btn btn-gold" onclick="openAddModal()">+ Add Event</button>
+    </div>
+    <div class="events-list" id="events-list">
+      <div class="empty-state">Loading events...</div>
+    </div>
+  </div>
+</div>
+
+<!-- ADD/EDIT MODAL -->
+<div class="modal-overlay" id="event-modal">
+  <div class="modal">
+    <h2 id="modal-title">Add Event</h2>
+    <input type="hidden" id="edit-event-id" />
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Event Title *</label>
+        <input type="text" id="f-title" placeholder="e.g. Simp City" />
+      </div>
+      <div class="form-group">
+        <label>Subtitle <span style="font-weight:400;text-transform:none;color:#555">(optional)</span></label>
+        <input type="text" id="f-subtitle" placeholder="e.g. ft. 6LACK" />
+      </div>
+      <div class="form-group">
+        <label>Date *</label>
+        <input type="text" id="f-date" placeholder="e.g. March 08, 2026" />
+      </div>
+      <div class="form-group">
+        <label>City</label>
+        <input type="text" id="f-city" placeholder="e.g. Las Vegas" />
+      </div>
+      <div class="form-group">
+        <label>Venue</label>
+        <input type="text" id="f-venue" placeholder="e.g. LIV" />
+      </div>
+      <div class="form-group full">
+        <label>Ticket Link</label>
+        <input type="url" id="f-ticketUrl" placeholder="https://..." />
+      </div>
+      <div class="form-group">
+        <label>Button Text</label>
+        <input type="text" id="f-overlayText" placeholder="Get Tickets" />
+      </div>
+      <div class="form-group">
+        <label>Event Image</label>
+        <input type="file" id="f-image" accept="image/*" onchange="previewImage(this)" />
+        <img id="f-image-preview" class="current-image" />
+        <div class="upload-progress" id="upload-progress">
+          <div class="upload-progress-bar" id="upload-progress-bar"></div>
+        </div>
+      </div>
+    </div>
+    <div class="form-actions">
+      <button class="btn btn-ghost" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-gold" id="save-btn" onclick="saveEvent()">Save Event</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script type="module">
+  import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+  import {
+    getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged
+  } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
+  import {
+    getFirestore, collection, addDoc, updateDoc, deleteDoc,
+    getDocs, doc, serverTimestamp, query, orderBy
+  } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+  import {
+    getStorage, ref, uploadBytesResumable, getDownloadURL
+  } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js';
+  import { firebaseConfig } from './firebase-config.js';
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+  const storage = getStorage(app);
+
+  let events = [];
+
+  // ── Auth ──────────────────────────────────────────────────────────
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      document.getElementById('login-screen').style.display = 'none';
+      document.getElementById('admin-panel').style.display = 'block';
+      loadEvents();
+    } else {
+      document.getElementById('login-screen').style.display = 'flex';
+      document.getElementById('admin-panel').style.display = 'none';
+    }
+  });
+
+  window.login = async function () {
+    const email = document.getElementById('login-email').value.trim();
+    const password = document.getElementById('login-password').value;
+    const err = document.getElementById('login-error');
+    const btn = document.getElementById('login-btn');
+    err.style.display = 'none';
+    btn.disabled = true;
+    btn.textContent = 'Signing in...';
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+    } catch (e) {
+      err.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = 'Sign In';
+    }
+  };
+
+  window.logout = async function () {
+    await signOut(auth);
+  };
+
+  document.getElementById('login-password').addEventListener('keydown', e => {
+    if (e.key === 'Enter') window.login();
+  });
+
+  // ── Events ────────────────────────────────────────────────────────
+  async function loadEvents() {
+    const list = document.getElementById('events-list');
+    list.innerHTML = '<div class="empty-state">Loading...</div>';
+    try {
+      const q = query(collection(db, 'events'), orderBy('createdAt', 'asc'));
+      const snapshot = await getDocs(q);
+      events = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+      renderEvents();
+    } catch (e) {
+      list.innerHTML = '<div class="empty-state">Failed to load events.</div>';
+    }
+  }
+
+  function renderEvents() {
+    const list = document.getElementById('events-list');
+    if (events.length === 0) {
+      list.innerHTML = '<div class="empty-state">No upcoming events. Click "Add Event" to get started.</div>';
+      return;
+    }
+    list.innerHTML = events.map(e => `
+      <div class="event-card">
+        <img class="event-thumb" src="${e.imageUrl || ''}" onerror="this.style.display='none'" />
+        <div class="event-info">
+          <h3>${e.title}</h3>
+          <div class="event-meta">
+            <span>📅 ${e.date}</span>
+            <span>📍 ${e.venue || ''}${e.venue && e.city ? ', ' : ''}${e.city || ''}</span>
+          </div>
+        </div>
+        <div class="event-actions">
+          <button class="btn btn-ghost btn-sm" data-edit="${e.id}">Edit</button>
+          <button class="btn btn-danger btn-sm" data-delete="${e.id}" data-title="${(e.title || '').replace(/"/g, '&quot;')}">Delete</button>
+        </div>
+      </div>
+    `).join('');
+
+    list.querySelectorAll('[data-edit]').forEach(btn => {
+      btn.addEventListener('click', () => openEditModal(btn.dataset.edit));
+    });
+    list.querySelectorAll('[data-delete]').forEach(btn => {
+      btn.addEventListener('click', () => deleteEvent(btn.dataset.delete, btn.dataset.title));
+    });
+  }
+
+  async function deleteEvent(id, title) {
+    if (!confirm(`Delete "${title}"?`)) return;
+    try {
+      await deleteDoc(doc(db, 'events', id));
+      showToast('Event deleted');
+      loadEvents();
+    } catch (e) {
+      showToast('Failed to delete', true);
+    }
+  }
+
+  // ── Modal ─────────────────────────────────────────────────────────
+  window.openAddModal = function () {
+    document.getElementById('modal-title').textContent = 'Add Event';
+    document.getElementById('edit-event-id').value = '';
+    clearForm();
+    document.getElementById('event-modal').classList.add('open');
+  };
+
+  window.openEditModal = function (id) {
+    const event = events.find(e => e.id === id);
+    if (!event) return;
+    document.getElementById('modal-title').textContent = 'Edit Event';
+    document.getElementById('edit-event-id').value = id;
+    document.getElementById('f-title').value = event.title || '';
+    document.getElementById('f-subtitle').value = event.subtitle || '';
+    document.getElementById('f-date').value = event.date || '';
+    document.getElementById('f-city').value = event.city || '';
+    document.getElementById('f-venue').value = event.venue || '';
+    document.getElementById('f-ticketUrl').value = event.ticketUrl || '';
+    document.getElementById('f-overlayText').value = event.overlayText || '';
+    const preview = document.getElementById('f-image-preview');
+    if (event.imageUrl) {
+      preview.src = event.imageUrl;
+      preview.style.display = 'block';
+    } else {
+      preview.style.display = 'none';
+    }
+    document.getElementById('event-modal').classList.add('open');
+  };
+
+  window.closeModal = function () {
+    document.getElementById('event-modal').classList.remove('open');
+    clearForm();
+  };
+
+  function clearForm() {
+    ['f-title','f-subtitle','f-date','f-city','f-venue','f-ticketUrl','f-overlayText'].forEach(id => {
+      document.getElementById(id).value = '';
+    });
+    document.getElementById('f-image').value = '';
+    const preview = document.getElementById('f-image-preview');
+    preview.src = '';
+    preview.style.display = 'none';
+    document.getElementById('upload-progress').style.display = 'none';
+    document.getElementById('upload-progress-bar').style.width = '0%';
+  }
+
+  window.previewImage = function (input) {
+    const preview = document.getElementById('f-image-preview');
+    if (input.files && input.files[0]) {
+      preview.src = URL.createObjectURL(input.files[0]);
+      preview.style.display = 'block';
+    }
+  };
+
+  window.saveEvent = async function () {
+    const id = document.getElementById('edit-event-id').value;
+    const title = document.getElementById('f-title').value.trim();
+    const date = document.getElementById('f-date').value.trim();
+    if (!title || !date) { showToast('Title and date are required', true); return; }
+
+    const saveBtn = document.getElementById('save-btn');
+    saveBtn.disabled = true;
+    saveBtn.textContent = 'Saving...';
+
+    try {
+      let imageUrl = id ? (events.find(e => e.id === id)?.imageUrl || '') : '';
+      const imageFile = document.getElementById('f-image').files[0];
+
+      if (imageFile) {
+        imageUrl = await uploadImage(imageFile);
+      }
+
+      const data = {
+        title,
+        date,
+        city: document.getElementById('f-city').value.trim(),
+        subtitle: document.getElementById('f-subtitle').value.trim(),
+        venue: document.getElementById('f-venue').value.trim(),
+        ticketUrl: document.getElementById('f-ticketUrl').value.trim(),
+        overlayText: document.getElementById('f-overlayText').value.trim() || 'Get Tickets',
+        imageUrl,
+      };
+
+      if (id) {
+        await updateDoc(doc(db, 'events', id), data);
+        showToast('Event updated');
+      } else {
+        data.createdAt = serverTimestamp();
+        await addDoc(collection(db, 'events'), data);
+        showToast('Event added');
+      }
+
+      closeModal();
+      loadEvents();
+    } catch (e) {
+      showToast('Failed to save: ' + e.message, true);
+    } finally {
+      saveBtn.disabled = false;
+      saveBtn.textContent = 'Save Event';
+    }
+  };
+
+  function uploadImage(file) {
+    return new Promise((resolve, reject) => {
+      const storageRef = ref(storage, `events/${Date.now()}-${file.name}`);
+      const task = uploadBytesResumable(storageRef, file);
+      const progressBar = document.getElementById('upload-progress-bar');
+      document.getElementById('upload-progress').style.display = 'block';
+
+      task.on('state_changed',
+        (snapshot) => {
+          const pct = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          progressBar.style.width = pct + '%';
+        },
+        (err) => reject(err),
+        async () => {
+          const url = await getDownloadURL(task.snapshot.ref);
+          resolve(url);
+        }
+      );
+    });
+  }
+
+  // ── Toast ─────────────────────────────────────────────────────────
+  window.showToast = function (msg, isError = false) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.className = 'toast' + (isError ? ' error' : '');
+    requestAnimationFrame(() => t.classList.add('show'));
+    setTimeout(() => t.classList.remove('show'), 3000);
+  };
+
+  document.getElementById('event-modal').addEventListener('click', function(e) {
+    if (e.target === this) window.closeModal();
+  });
+</script>
+
+</body>
+</html>

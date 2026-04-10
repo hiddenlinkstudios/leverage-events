@@ -162,71 +162,47 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="section-titles">
             <h3>Upcoming Events</h3>
         </div>
-        <div class="events">
-
-            <div class="photo upcoming-photo">
-                <a href="https://link.dice.fm/Lvrg52" target="_blank"><img
-                        src="Content/0417_SIMP CITY_LAS VEGAS_ARTIST-6LACK-R3.JPEG" alt="Simp City ft. 6LACK">
-                    <div class="centered">
-                        Las Vegas<br>
-                        On The Record<br>
-                        Simp City ft. 6LACK<br>
-                        April 17, 2026
-                    </div>
-                    <div class="overlay">
-                        <div class="text">Get Tickets</div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="photo upcoming-photo">
-                <a href="https://link.dice.fm/Lvrg52" target="_blank"><img
-                        src="Content/0502-ahern_4.JPEG" alt="Leverage House">
-                    <div class="centered">
-                        Las Vegas<br>
-                        Ahern Hotel<br>
-                        Leverage House<br>
-                        YouTube Recorded Party<br>
-                        May 2, 2026
-                    </div>
-                    <div class="overlay">
-                        <div class="text">Get Tickets</div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="photo upcoming-photo">
-                <a href="https://link.dice.fm/Lvrg58" target="_blank"><img
-                        src="Content/0508_afterdark2-R2.JPEG" alt="After Dark">
-                    <div class="centered">
-                        Las Vegas<br>
-                        La Mona Rosa<br>
-                        After Dark (Rap/Hip-Hop/R&B)<br>
-                        May 8, 2026
-                    </div>
-                    <div class="overlay">
-                        <div class="text">Get Tickets</div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="photo upcoming-photo">
-            <a href="https://link.dice.fm/Lvrg522" target="_blank"><img
-                    src="Content/IMG_8826.PNG" alt="DJ Lex">
-                <div class="centered">
-                    Las Vegas<br>
-                    On The Record<br>
-                    DJ Lex<br>
-                    May 22, 2026
-                </div>
-                <div class="overlay">
-                    <div class="text">Get Tickets</div>
-                </div>
-            </a>
-            </div>
-
+        <div class="events" id="upcoming-events-container">
+            <!-- Events loaded dynamically -->
         </div>
     </section>
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+        import { getFirestore, collection, getDocs, query, orderBy } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+        import { firebaseConfig } from './firebase-config.js';
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        function renderEvents(events) {
+            var container = document.getElementById('upcoming-events-container');
+            if (!events || events.length === 0) {
+                container.innerHTML = '<p style="color:#aaa;text-align:center;padding:32px;">No upcoming events at this time.</p>';
+                return;
+            }
+            container.innerHTML = events.map(function (e) {
+                return '<div class="photo upcoming-photo">' +
+                    '<a href="' + (e.ticketUrl || '#') + '" target="_blank">' +
+                    '<img src="' + (e.imageUrl || '') + '" alt="' + e.title + '">' +
+                    '<div class="centered">' +
+                    (e.city || '') + '<br>' + (e.venue || '') + '<br>' + e.title + '<br>' +
+                    (e.subtitle ? e.subtitle + '<br>' : '') + e.date +
+                    '</div>' +
+                    '<div class="overlay"><div class="text">' + (e.overlayText || 'Get Tickets') + '</div></div>' +
+                    '</a></div>';
+            }).join('');
+        }
+
+        try {
+            var q = query(collection(db, 'events'), orderBy('createdAt', 'asc'));
+            getDocs(q).then(function (snapshot) {
+                var events = snapshot.docs.map(function (d) { return d.data(); });
+                renderEvents(events);
+            });
+        } catch (e) {
+            // Silently fail — page still loads
+        }
+    </script>
 
     <!-- DICE -->
     <!-- WAITLIST -->
