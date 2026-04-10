@@ -185,7 +185,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     '<a href="' + (e.ticketUrl || '#') + '" target="_blank">' +
                     '<img src="' + (e.imageUrl || '') + '" alt="' + e.title + '">' +
                     '<div class="centered">' +
-                    (e.city || '') + '<br>' + (e.venue || '') + '<br>' + e.title + '<br>' + e.date +
+                    (e.city || '') + '<br>' + (e.venue || '') + '<br>' + e.title + '<br>' +
+                    (e.subtitle ? e.subtitle + '<br>' : '') + e.date +
                     '</div>' +
                     '<div class="overlay"><div class="text">' + (e.overlayText || 'Get Tickets') + '</div></div>' +
                     '</a></div>';

@@ -297,6 +297,7 @@
   <div class="topbar">
     <h1>LEVERAGE ADMIN</h1>
     <div class="topbar-actions">
+      <a class="btn btn-ghost" href="/" target="_blank">View Site</a>
       <button class="btn btn-ghost" onclick="logout()">Logout</button>
     </div>
   </div>
@@ -321,6 +322,10 @@
       <div class="form-group">
         <label>Event Title *</label>
         <input type="text" id="f-title" placeholder="e.g. Simp City" />
+      </div>
+      <div class="form-group">
+        <label>Subtitle <span style="font-weight:400;text-transform:none;color:#555">(optional)</span></label>
+        <input type="text" id="f-subtitle" placeholder="e.g. ft. 6LACK" />
       </div>
       <div class="form-group">
         <label>Date *</label>
@@ -488,6 +493,7 @@
     document.getElementById('modal-title').textContent = 'Edit Event';
     document.getElementById('edit-event-id').value = id;
     document.getElementById('f-title').value = event.title || '';
+    document.getElementById('f-subtitle').value = event.subtitle || '';
     document.getElementById('f-date').value = event.date || '';
     document.getElementById('f-city').value = event.city || '';
     document.getElementById('f-venue').value = event.venue || '';
@@ -509,7 +515,7 @@
   };
 
   function clearForm() {
-    ['f-title','f-date','f-city','f-venue','f-ticketUrl','f-overlayText'].forEach(id => {
+    ['f-title','f-subtitle','f-date','f-city','f-venue','f-ticketUrl','f-overlayText'].forEach(id => {
       document.getElementById(id).value = '';
     });
     document.getElementById('f-image').value = '';
@@ -550,6 +556,7 @@
         title,
         date,
         city: document.getElementById('f-city').value.trim(),
+        subtitle: document.getElementById('f-subtitle').value.trim(),
         venue: document.getElementById('f-venue').value.trim(),
         ticketUrl: document.getElementById('f-ticketUrl').value.trim(),
         overlayText: document.getElementById('f-overlayText').value.trim() || 'Get Tickets',
