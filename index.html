@@ -168,7 +168,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </section>
     <script type="module">
         import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
-        import { getFirestore, collection, getDocs, query, orderBy } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+        import { getFirestore, collection, getDocs } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
         import { firebaseConfig } from './firebase-config.js';
 
         const app = initializeApp(firebaseConfig);
@@ -193,15 +193,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             }).join('');
         }
 
-        try {
-            var q = query(collection(db, 'events'), orderBy('order', 'asc'));
-            getDocs(q).then(function (snapshot) {
-                var events = snapshot.docs.map(function (d) { return d.data(); });
-                renderEvents(events);
-            });
-        } catch (e) {
+        getDocs(collection(db, 'events')).then(function (snapshot) {
+            var events = snapshot.docs.map(function (d) { return d.data(); });
+            events.sort(function (a, b) { return (a.order ?? 999) - (b.order ?? 999); });
+            renderEvents(events);
+        }).catch(function () {
             // Silently fail — page still loads
-        }
+        });
     </script>
 
     <!-- DICE -->

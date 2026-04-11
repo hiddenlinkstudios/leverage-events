@@ -452,31 +452,24 @@
     const list = document.getElementById('events-list');
     list.innerHTML = '<div class="empty-state">Loading...</div>';
     try {
-      const q = query(collection(db, 'events'), orderBy('order', 'asc'));
-      const snapshot = await getDocs(q);
+      // Load all events without ordering so missing `order` fields don't exclude documents
+      const snapshot = await getDocs(collection(db, 'events'));
       events = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
 
       // Assign order values to any events that are missing them
       const needsOrder = events.filter(e => e.order === undefined);
       if (needsOrder.length > 0) {
-        events.forEach((e, i) => { e.order = i; });
+        events.forEach((e, i) => { if (e.order === undefined) e.order = i; });
         const batch = writeBatch(db);
-        events.forEach(e => batch.update(doc(db, 'events', e.id), { order: e.order }));
+        needsOrder.forEach(e => batch.update(doc(db, 'events', e.id), { order: e.order }));
         await batch.commit();
       }
 
+      // Sort client-side
+      events.sort((a, b) => a.order - b.order);
       renderEvents();
     } catch (e) {
-      // Fallback: try loading without orderBy in case index isn't ready yet
-      try {
-        const snapshot = await getDocs(collection(db, 'events'));
-        events = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
-        events.forEach((e, i) => { if (e.order === undefined) e.order = i; });
-        events.sort((a, b) => a.order - b.order);
-        renderEvents();
-      } catch {
-        document.getElementById('events-list').innerHTML = '<div class="empty-state">Failed to load events.</div>';
-      }
+      list.innerHTML = '<div class="empty-state">Failed to load events.</div>';
     }
   }
 
