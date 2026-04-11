@@ -194,7 +194,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         }
 
         try {
-            var q = query(collection(db, 'events'), orderBy('createdAt', 'asc'));
+            var q = query(collection(db, 'events'), orderBy('order', 'asc'));
             getDocs(q).then(function (snapshot) {
                 var events = snapshot.docs.map(function (d) { return d.data(); });
                 renderEvents(events);

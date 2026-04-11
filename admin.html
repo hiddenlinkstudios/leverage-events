@@ -136,6 +136,30 @@
       gap: 16px;
     }
 
+    .reorder-btns {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      flex-shrink: 0;
+    }
+
+    .reorder-btn {
+      background: #1e1e1e;
+      border: 1px solid #333;
+      border-radius: 4px;
+      color: #888;
+      font-size: 9px;
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s, color 0.15s;
+    }
+    .reorder-btn:hover:not(:disabled) { background: #2a2a2a; color: #d4a94f; }
+    .reorder-btn:disabled { opacity: 0.2; cursor: default; }
+
     .event-thumb {
       width: 64px;
       height: 64px;
@@ -372,7 +396,7 @@
   } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
   import {
     getFirestore, collection, addDoc, updateDoc, deleteDoc,
-    getDocs, doc, serverTimestamp, query, orderBy
+    getDocs, doc, serverTimestamp, query, orderBy, writeBatch
   } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
   import {
     getStorage, ref, uploadBytesResumable, getDownloadURL
@@ -428,12 +452,31 @@
     const list = document.getElementById('events-list');
     list.innerHTML = '<div class="empty-state">Loading...</div>';
     try {
-      const q = query(collection(db, 'events'), orderBy('createdAt', 'asc'));
+      const q = query(collection(db, 'events'), orderBy('order', 'asc'));
       const snapshot = await getDocs(q);
       events = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+
+      // Assign order values to any events that are missing them
+      const needsOrder = events.filter(e => e.order === undefined);
+      if (needsOrder.length > 0) {
+        events.forEach((e, i) => { e.order = i; });
+        const batch = writeBatch(db);
+        events.forEach(e => batch.update(doc(db, 'events', e.id), { order: e.order }));
+        await batch.commit();
+      }
+
       renderEvents();
     } catch (e) {
-      list.innerHTML = '<div class="empty-state">Failed to load events.</div>';
+      // Fallback: try loading without orderBy in case index isn't ready yet
+      try {
+        const snapshot = await getDocs(collection(db, 'events'));
+        events = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+        events.forEach((e, i) => { if (e.order === undefined) e.order = i; });
+        events.sort((a, b) => a.order - b.order);
+        renderEvents();
+      } catch {
+        document.getElementById('events-list').innerHTML = '<div class="empty-state">Failed to load events.</div>';
+      }
     }
   }
 
@@ -443,8 +486,12 @@
       list.innerHTML = '<div class="empty-state">No upcoming events. Click "Add Event" to get started.</div>';
       return;
     }
-    list.innerHTML = events.map(e => `
+    list.innerHTML = events.map((e, i) => `
       <div class="event-card">
+        <div class="reorder-btns">
+          <button class="reorder-btn" data-move="${e.id}" data-dir="up" ${i === 0 ? 'disabled' : ''}>▲</button>
+          <button class="reorder-btn" data-move="${e.id}" data-dir="down" ${i === events.length - 1 ? 'disabled' : ''}>▼</button>
+        </div>
         <img class="event-thumb" src="${e.imageUrl || ''}" onerror="this.style.display='none'" />
         <div class="event-info">
           <h3>${e.title}</h3>
@@ -466,6 +513,31 @@
     list.querySelectorAll('[data-delete]').forEach(btn => {
       btn.addEventListener('click', () => deleteEvent(btn.dataset.delete, btn.dataset.title));
     });
+    list.querySelectorAll('[data-move]').forEach(btn => {
+      btn.addEventListener('click', () => moveEvent(btn.dataset.move, btn.dataset.dir));
+    });
+  }
+
+  async function moveEvent(id, direction) {
+    const idx = events.findIndex(e => e.id === id);
+    const swapIdx = direction === 'up' ? idx - 1 : idx + 1;
+    if (swapIdx < 0 || swapIdx >= events.length) return;
+
+    // Swap order values
+    const temp = events[idx].order;
+    events[idx].order = events[swapIdx].order;
+    events[swapIdx].order = temp;
+
+    // Swap in array
+    [events[idx], events[swapIdx]] = [events[swapIdx], events[idx]];
+
+    // Save both to Firestore
+    const batch = writeBatch(db);
+    batch.update(doc(db, 'events', events[idx].id), { order: events[idx].order });
+    batch.update(doc(db, 'events', events[swapIdx].id), { order: events[swapIdx].order });
+    await batch.commit();
+
+    renderEvents();
   }
 
   async function deleteEvent(id, title) {
