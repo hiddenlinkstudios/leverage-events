@@ -456,17 +456,21 @@
       const snapshot = await getDocs(collection(db, 'events'));
       events = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
 
-      // Assign order values to any events that are missing them
-      const needsOrder = events.filter(e => e.order === undefined);
-      if (needsOrder.length > 0) {
-        events.forEach((e, i) => { if (e.order === undefined) e.order = i; });
+      // Sort by existing order first (undefined goes to end)
+      events.sort((a, b) => (a.order ?? Infinity) - (b.order ?? Infinity));
+
+      // Check for missing values or duplicates
+      const orderValues = events.map(e => e.order);
+      const hasDuplicates = new Set(orderValues).size !== orderValues.length;
+      const hasMissing = events.some(e => e.order === undefined);
+
+      if (hasDuplicates || hasMissing) {
+        // Re-assign clean sequential values to everyone
+        events.forEach((e, i) => { e.order = i; });
         const batch = writeBatch(db);
-        needsOrder.forEach(e => batch.update(doc(db, 'events', e.id), { order: e.order }));
+        events.forEach(e => batch.update(doc(db, 'events', e.id), { order: e.order }));
         await batch.commit();
       }
-
-      // Sort client-side
-      events.sort((a, b) => a.order - b.order);
       renderEvents();
     } catch (e) {
       list.innerHTML = '<div class="empty-state">Failed to load events.</div>';
@@ -633,6 +637,7 @@
         showToast('Event updated');
       } else {
         data.createdAt = serverTimestamp();
+        data.order = events.length > 0 ? Math.max(...events.map(e => e.order)) + 1 : 0;
         await addDoc(collection(db, 'events'), data);
         showToast('Event added');
       }
